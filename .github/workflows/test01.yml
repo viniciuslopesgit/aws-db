@@ -36,7 +36,7 @@ jobs:
           echo ${{ secrets.PGPASS }} > chave.pem
           echo {{ variable.DB_HOST }}
           chmod 600 chave.pem
-          psql -d db_dl@${{ variable.DB_HOST }} -U aws-vinicius
+          psql -d db_dl@${{ vars.DB_HOST }} -U aws-vinicius
 
           echo ${{ var.DB_HOST }}
           ls -all

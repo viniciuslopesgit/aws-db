@@ -34,7 +34,7 @@ jobs:
         run: |
           apt install -y postgresql-common
           echo ${{ secrets.PGPASS }} > chave.pem
-          echo {{ variable.DB_HOST }}
+          echo {{ vars.DB_HOST }}
           chmod 600 chave.pem
           psql -d db_dl@${{ vars.DB_HOST }} -U aws-vinicius
 

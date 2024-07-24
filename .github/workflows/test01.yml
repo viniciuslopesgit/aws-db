@@ -38,5 +38,5 @@ jobs:
           chmod 600 chave.pem
           psql -d db_dl@${{ vars.DB_HOST }} -U aws-vinicius
 
-          echo ${{ var.DB_HOST }}
+          echo ${{ vars.DB_HOST }}
           ls -all

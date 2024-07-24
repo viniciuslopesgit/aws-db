@@ -34,4 +34,6 @@ jobs:
         run: |
           echo ${{ secrets.PGPASS }} > chave.pem
           chmod 600 chave.pem
+
+          echo ${{ var.DB_HOST }}
           ls -all

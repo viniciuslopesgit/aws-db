@@ -32,8 +32,11 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
+          apt install -y postgresql-common
           echo ${{ secrets.PGPASS }} > chave.pem
+          echo {{ variable.DB_HOST }}
           chmod 600 chave.pem
+          psql -d db_dl@${{ variable.DB_HOST }} -U aws-vinicius
 
           echo ${{ var.DB_HOST }}
           ls -all

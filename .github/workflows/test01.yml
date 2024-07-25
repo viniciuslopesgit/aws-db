@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CICD do nosso projeto
+name: CICD do nosso Projecto 
 
 # Controls when the workflow will run
 on:
@@ -15,11 +15,12 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
+    environment: Producao
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -37,7 +38,6 @@ jobs:
           echo ${{ secrets.PGPASS }} > chave.pem
           echo ${{ vars.DB_HOST }}
           chmod 600 chave.pem
-          psql -d db_dl -h ${{ vars.DB_HOST }} -U aws-vinicius
-
-          echo ${{ vars.DB_HOST }}
           ls -all
+          cat chave.pem
+          PGPASSWORD=${{ secrets.PGPASS }} psql -d db-ea -h ${{ vars.DB_HOST }} -U postgres

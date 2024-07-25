@@ -40,4 +40,4 @@ jobs:
           chmod 600 chave.pem
           ls -all
           cat chave.pem
-          PGPASSWORD=${{ secrets.PGPASS }} psql -d db-ea -h ${{ vars.DB_HOST }} -U postgres
+          PGPASSWORD=${{ secrets.PGPASS }} psql -d db-dl -h ${{ vars.DB_HOST }} -U postgres -f listagem.sql 
